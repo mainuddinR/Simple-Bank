@@ -67,6 +67,8 @@
             const currentDeposit=document.getElementById('currentDeposit').innerText;
             const currentNumber=parseFloat(currentDeposit);
 
+            document.getElementById('depositAmount').value="";
+
             const totalDeposit = currentNumber+deposit;
            // console.log('currentDeposit:',sum);
             document.getElementById('currentDeposit').innerText=totalDeposit;
@@ -84,6 +86,8 @@
             const currentWithdrawN=parseFloat(currentWithdraw);
             const totalWithdraw=withdraw+currentWithdrawN;
             document.getElementById('currentWithdraw').innerText=totalWithdraw;
+
+            document.getElementById('withdrawAmount').value="";
 
             const balanceGet=document.getElementById('currentBalance').innerText;
             const balance=parseFloat(balanceGet);
