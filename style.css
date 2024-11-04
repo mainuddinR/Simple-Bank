@@ -5,9 +5,44 @@ body{
     text-align: center;
 } */
 .submit-area{
+    /* display: block; */
     border:0px solid gray;
-    margin:20px;
-    padding:40px 150px;
+    margin:50px;
+    padding:40px;
     border-radius: 10px;
     box-shadow:10px 10px 15px gray;
+    /* text-align: center; */
+}
+.centralized{
+    margin:0 20%;
+}
+#Transaction-area{
+    display:none;
+    margin-left:150px;   
+}
+#header{
+    margin-left: 35%;
+    padding-bottom: 50px;
+}
+.deposit{
+    background-color: rgb(69, 55, 157);
+    box-shadow: 5px 5px 10px rgb(63, 111, 188);
+}
+.withdraw{
+    background-color: rgb(212, 119, 85);
+    box-shadow: 5px 5px 10px rgb(205, 200, 59);
+}
+.balance{
+    background-color: rgb(81, 131, 31); 
+    box-shadow: 5px 5px 10px rgb(112, 219, 83);   
+}
+.Calculate{
+    margin:20px;
+    margin:20px;
+    padding: 30px 10px;
+    border-radius: 20px;
+    text-align: center;
+    color:white;
+    border:1px solid white;
+    
 }
