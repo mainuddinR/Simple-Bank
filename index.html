@@ -12,10 +12,10 @@
         <h1 class="bankTitle text-center"><strong>Welcome to Simple Bank</strong></h1>
         <div class="submit-area centralized">
             <h4>Login</h4>
-            <input type="email" placeholder="Email" name="" class="form-control">
+            <input id="emailInput" type="email" placeholder="Email" name="" class="form-control">
             <br>
             <br>
-            <input type="password" placeholder="Password" name="" class="form-control">
+            <input id="pass" type="password" placeholder="Password" name="" class="form-control">
             <br>
             <br>
             <button id="login" class="btn btn-success">Enter</button>
@@ -52,49 +52,76 @@
 
     <script>
         //login button event handler
+        const email="mainuddin.01.a@gmail.com";
+        const password="1234";
+
         const loginBtn=document.getElementById('login');
         loginBtn.addEventListener("click",function(){
-            const loginArea=document.getElementById("login-area");
-            loginArea.style.display="none";
-            const transactionArea=document.getElementById('Transaction-area');
-            transactionArea.style.display="block";
+            const emailInput=document.getElementById('emailInput').value;
+            const pass=document.getElementById('pass').value;
+            
+            if(emailInput==email&&pass==password){
+                const loginArea=document.getElementById("login-area");
+                 loginArea.style.display="none";
+                const transactionArea=document.getElementById('Transaction-area');
+                transactionArea.style.display="block";
+            }
+            else{
+                alert("User not found! try again");
+            }
+
+                clearInput('emailInput');
+                clearInput('pass');
         });
         //Deposit button event handler
         const depositBtn=document.getElementById("depositBtn").addEventListener("click", function(){
-            const depositAmount=document.getElementById('depositAmount').value;
-           const deposit=parseFloat(depositAmount);
+    
+            const deposit=getInputNumber('depositAmount');
 
-            const currentDeposit=document.getElementById('currentDeposit').innerText;
-            const currentNumber=parseFloat(currentDeposit);
+            const currentNumber=getInnerTextToNumber('currentDeposit');
 
-            document.getElementById('depositAmount').value="";
+            clearInput('depositAmount');
 
             const totalDeposit = currentNumber+deposit;
-           // console.log('currentDeposit:',sum);
             document.getElementById('currentDeposit').innerText=totalDeposit;
-            const balanceGet=document.getElementById('currentBalance').innerText;
-            const balance=parseFloat(balanceGet);
+            const balance=getInnerTextToNumber('currentBalance');
             const totalBalace=balance+deposit;
+
             document.getElementById('currentBalance').innerText=totalBalace;
         });
         //withdraw
         const withdrawBtn=document.getElementById('withdrawBtn').addEventListener("click", function(){
-            const withdrawAmount=document.getElementById('withdrawAmount').value;
-            const withdraw=parseFloat(withdrawAmount);
 
-            const currentWithdraw=document.getElementById('currentWithdraw').innerText;
-            const currentWithdrawN=parseFloat(currentWithdraw);
-            const totalWithdraw=withdraw+currentWithdrawN;
-            document.getElementById('currentWithdraw').innerText=totalWithdraw;
+            const withdraw=getInputNumber('withdrawAmount');
 
-            document.getElementById('withdrawAmount').value="";
-
-            const balanceGet=document.getElementById('currentBalance').innerText;
-            const balance=parseFloat(balanceGet);
-            const totalBalace=balance-withdraw;
-            document.getElementById('currentBalance').innerText=totalBalace;
-
+            const currentWithdrawN=getInnerTextToNumber('currentWithdraw');
+        
+                 const balance=getInnerTextToNumber('currentBalance');
+            if(balance>=withdraw){
+                const totalWithdraw=withdraw+currentWithdrawN;
+                const totalBalace=balance-withdraw;
+                document.getElementById('currentBalance').innerText=totalBalace;
+                document.getElementById('currentWithdraw').innerText=totalWithdraw;
+            }
+            else{
+                alert("Not enough Balance");
+            }
+            clearInput('withdrawAmount');
         });
+
+        function getInputNumber(id){
+            const sNumber=document.getElementById(id).value;
+            const Number=parseFloat(sNumber);
+            return Number;
+        }
+        function getInnerTextToNumber(id){
+            const text=document.getElementById(id).innerText;
+            const Number=parseFloat(text);
+            return Number;
+        }
+        function clearInput(id){
+            document.getElementById(id).value='';
+        }
 
     </script>
     

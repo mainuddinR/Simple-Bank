@@ -1,17 +1,13 @@
 body{
     padding:100px;
+    /* display:contents; */
 }
-/* .bankTitle{
-    text-align: center;
-} */
 .submit-area{
-    /* display: block; */
     border:0px solid gray;
     margin:50px;
     padding:40px;
     border-radius: 10px;
     box-shadow:10px 10px 15px gray;
-    /* text-align: center; */
 }
 .centralized{
     margin:0 20%;
